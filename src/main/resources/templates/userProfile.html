@@ -2,9 +2,10 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>CodeFellowship</title>
+    <title>Profile</title>
 </head>
 <body>
     <div th:replace="fragments/nav :: nav"></div>
+    <h3 th:text="${viewedUser.username}"></h3>
 </body>
 </html>

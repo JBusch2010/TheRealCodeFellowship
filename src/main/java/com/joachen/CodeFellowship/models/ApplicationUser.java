@@ -3,11 +3,9 @@ package com.joachen.CodeFellowship.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -17,14 +15,15 @@ public class ApplicationUser implements UserDetails {
     Long id;
     String username;
     String password;
-//    private final String firstname;
-//    private final String lastname;
     String firstName;
     String lastName;
-    int dateOfBirth;
+    String dateOfBirth;
     String bio;
 
-    public ApplicationUser(String username, String password, String firstname, String lastname, int dateOfBirth, String bio){
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "poster")
+    List<Post> post;
+
+    public ApplicationUser(String username, String password, String firstname, String lastname, String dateOfBirth, String bio){
 
         this.username = username;
         this.password = password;
@@ -71,11 +70,27 @@ public class ApplicationUser implements UserDetails {
         return true;
     }
 
-    public String getFirstname () {
+    public String getBio () {
+        return bio;
+    }
+
+    public String getDateOfBirth () {
+        return dateOfBirth;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFirstName () {
         return firstName;
     }
 
-    public String getLastname () {
+    public String getLastName () {
         return lastName;
+    }
+
+    public List<Post> getPost() {
+        return this.post;
     }
 }

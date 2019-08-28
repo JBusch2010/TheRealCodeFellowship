@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
 </head>
 <body>
+    <div th:replace="fragments/nav :: nav"></div>
+    <h1>Sign Up to CodeFellowship!</h1>
 <form method="POST" action="/users">
-    <label for="firstname">First name: </label><input name="firstname" id="firstname" />
-    <label for="lastname">Last name: </label><input name="lastname" id="lastname" />
-    <label for="username"> Username: </label><input name="username" id="username" />
-    <label for="password">Password:</label><input type="password" name="password" id="password" />
-    <label for="dateofbirth">Date of Birth: </label><input name="dateofbirth" id="dateofbirth" />
-    <label for="bio">Bio: </label><input name="bio" id="bio" />
-    <input type="submit" />
+    <label for="firstname">First name: </label><input name="firstname" id="firstname" /><br>
+    <br><label for="lastname">Last name: </label><input name="lastname" id="lastname" /><br>
+    <br><label for="username"> Username: </label><input name="username" id="username" /><br>
+    <br><label for="password">Password:</label><input type="password" name="password" id="password" /><br>
+    <br> <label for="dateofbirth">DOB: </label><input name="dateofbirth" id="dateofbirth" /><br>
+    <br> <label for="bio">Bio: </label><input name="bio" id="bio" /><br>
+    <br> <input type="submit" />
 </form>
 </body>
 </html>
