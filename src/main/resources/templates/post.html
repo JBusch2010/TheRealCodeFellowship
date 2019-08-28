@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a Post</title>
+</head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+<h2>What do you have to say?</h2>
+<form method="post" action="//post/makepost">
+    <label for="body">Body</label><input id="body" name="body" />
+    <!--<label for="createdAt">Species</label><input id="createdAt" name="createdAt" />-->
+    <input type="submit" />
+</form>
+</body>
+</html>
