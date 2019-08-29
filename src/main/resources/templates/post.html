@@ -8,10 +8,10 @@
 <body>
 <div th:replace="fragments/nav :: nav"></div>
 <h2>What do you have to say?</h2>
-<form method="post" action="//post/makepost">
-    <label for="body">Body</label><input id="body" name="body" />
-    <!--<label for="createdAt">Species</label><input id="createdAt" name="createdAt" />-->
-    <input type="submit" />
+<form method="post" action="/post/makepost">
+    <label for="body">Post:</label>
+    <input id="body" type="text" name="body">
+    <input type="submit">
 </form>
 </body>
 </html>
