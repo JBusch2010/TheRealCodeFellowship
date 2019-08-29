@@ -66,7 +66,7 @@
 
 -------------------------------------------------------
 
-# Lab 17: CodeFellowship Profiles with Login
+# Lab 18: Following Users on CodeFellowship
 
 ## Build on top off Lab 16 > Enable the user to create a post and add it to their profile
 
