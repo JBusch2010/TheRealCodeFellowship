@@ -1,11 +1,11 @@
 package com.joachen.CodeFellowship.models;
 
 import javax.persistence.*;
-//import org.springframework.data.annotation.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
+
 
 //post needs a body and a createdAt timestamp
 //logged in user should be able to create a post
@@ -19,10 +19,21 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String body;
-//    int createdAt;
+    String createdAt;
 
     @ManyToOne
     ApplicationUser poster;
+
+    public ApplicationUser getPoster() {
+        return poster;
+    }
+    public Post() {}
+
+    public Post (String body, ApplicationUser poster) {
+
+        this.body = body;
+        this.poster = poster;
+    }
 
     public long getId() {
         return id;
@@ -32,18 +43,7 @@ public class Post {
         return body;
     }
 
-    //TODO
-//    public int getCreatedAt() {
-//        return createdAt;
-//    }
-
-    public Post (String body, int createdAt) {
-
-        this.body = body;
-//        this.createdAt = createdAt;
+    public String getCreatedAt() {
+        return createdAt;
     }
-
-    public Post (String body, int createdAt, ApplicationUser loggedInUser) {}
-
-
 }

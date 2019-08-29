@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -5,7 +6,16 @@
     <title>Profile</title>
 </head>
 <body>
-    <div th:replace="fragments/nav :: nav"></div>
-    <h3 th:text="${viewedUser.username}"></h3>
+<div th:replace="fragments/nav :: nav"></div>
+    <h1 th:text="${viewedUser.username}"></h1>
+    <h3> <span th:text="${viewedUser.firstName}"> </span> <span th:text="${viewedUser.lastName}"></span></h3>
+    <h3> <span th:text="${viewedUser.dateOfBirth}"></span></h3>
+    <h3> Bio: <span th:text="${viewedUser.bio}"></span></h3>
+
+    <h3>My posts:</h3>
+<ul>
+    <p th:each="post : ${viewedUser.posts}" th:text="${post.body}">
+</ul>
+
 </body>
 </html>
