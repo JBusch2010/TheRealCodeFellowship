@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
+import java.util.Set;
 
 
 //post needs a body and a createdAt timestamp
@@ -24,6 +25,17 @@ public class Post {
     @ManyToOne
     ApplicationUser poster;
 
+    @ManyToMany
+    @JoinTable(
+            name="post_likes",
+            joinColumns = {@JoinColumn(name="primaryPost")},
+            inverseJoinColumns = {@JoinColumn(name="likedPost")}
+    )
+    Set<Post> postsThatILike;
+
+    @ManyToMany(mappedBy = "myLikedPosts")
+    Set<Post> myLikedPosts;
+
     public ApplicationUser getPoster() {
         return poster;
     }
@@ -36,14 +48,24 @@ public class Post {
     }
 
     public long getId() {
+
         return id;
     }
 
     public String getBody() {
+
         return body;
     }
 
     public String getCreatedAt() {
         return createdAt;
+    }
+
+    public void addLike(Post likedPost){
+        postsThatILike.add(likedPost);
+    }
+
+    public Set<Post> getMyLikedPosts(){
+        return this.postsThatILike;
     }
 }
